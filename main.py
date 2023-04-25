@@ -36,11 +36,12 @@ if __name__ == '__main__':
     #                       columns=['Quantity', 'DateYear', 'DateMonth', 'DateDay', ]
     #                     )
     # print(dfMax)
-    #df1 = df1[df1.Quantity < 100]
-    df1 = df1[df1.Price < 15]
+    # df1 = df1[df1.Quantity < 100]
+    # df1 = df1[df1.Price < 15]
     # print(dfMin)
     #sns.boxplot(df1, x='DateMonth', y='Quantity', hue='DateYear')
     sns.boxplot(df1, x='DateMonth', y='Price', hue='DateYear')
+    plt.ylim(0, 10000)
     plt.show()
 
     # print_pie([value1[0], value1[1]], legend=['Совпали с праздником', 'Остальные'])
