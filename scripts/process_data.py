@@ -28,6 +28,8 @@ if __name__ == '__main__':
     df1['Customer ID'] = df1['Customer ID'].notna()
     # values = df1['Customer ID'].value_counts()
     # print_pie([values[0], values[1]], legend=values.index)
+    # Max Min
+
     # Holidays data set init
     dfHolidays = pd.read_csv(sys.argv[2])
     dfHolidaysDay = pd.read_csv(sys.argv[3])

@@ -2,6 +2,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import functions as local
+import seaborn as sns
 from functions.functions import print_histogram, print_pie
 from numpy import ma
 
@@ -26,9 +27,21 @@ if __name__ == '__main__':
     values = df1.isna().sum()
     # print_histogram(values.index, values.values, legend=['Пустые'])
     # print_pie([max(values.values), df1['Invoice'].count()], legend=['Пустые', 'Всего'])
-    df1['Customer ID'] = df1['Customer ID'].notna()
-    values = df1['Customer ID'].value_counts()
-    print_pie([values[0], values[1]], legend=values.index)
+    # values = df1['Customer ID'].value_counts()
+
+    # print_pie([values[0], values[1]], legend=values.index)
+    # dfMax = pd.DataFrame(df1.values.max(0)[None, :], columns=df1.columns).T
+    # dfMin = pd.DataFrame(df1.values.min(0)[None, :], columns=df1.columns).T
+    # dfMean = pd.DataFrame(df1.values.mean(0)[None, :],
+    #                       columns=['Quantity', 'DateYear', 'DateMonth', 'DateDay', ]
+    #                     )
+    # print(dfMax)
+    #df1 = df1[df1.Quantity < 100]
+    df1 = df1[df1.Price < 15]
+    # print(dfMin)
+    #sns.boxplot(df1, x='DateMonth', y='Quantity', hue='DateYear')
+    sns.boxplot(df1, x='DateMonth', y='Price', hue='DateYear')
+    plt.show()
 
     # print_pie([value1[0], value1[1]], legend=['Совпали с праздником', 'Остальные'])
     # print_pie([value2[0], value2[1]], legend=['Препразднечные', 'Остальные'])
