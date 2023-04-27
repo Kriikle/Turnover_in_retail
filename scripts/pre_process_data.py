@@ -45,7 +45,7 @@ if __name__ == '__main__':
     dfTmp.drop(['date'], axis=1, inplace=True)
     # Merge with Uk pre Holidays days
     dfTmp = dfTmp.merge(dfHolidaysDay, how='left', left_on='InvoiceDate', right_on='date')
-    dfTmp.drop(['name'], axis=1, inplace=True)
+    # dfTmp.drop(['name'], axis=1, inplace=True)
     dfTmp['Days_of_pre_holiday'] = dfTmp['date'].notna()
     dfTmp.drop(['date'], axis=1, inplace=True)
     # Deleting InvoiceDate

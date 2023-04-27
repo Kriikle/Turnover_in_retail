@@ -18,7 +18,11 @@ def print_hi(name):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    df1 = pd.read_csv('data/new_data/retail.csv', index_col=0, dtype={'Invoice': str})
+    df1 = pd.read_csv('data/new_data/retail.csv', index_col=0, dtype={'Invoice': str, 'Quantity': float})
+    df2 = pd.read_csv('data/new_data/time_sires.csv', index_col=0)
+    print(df2['Sum'])
+    sns.lineplot(x=df2.index, y=df2['Sum'])
+    plt.show()
 
     value1 = df1['Day_of_holiday'].value_counts()
     value2 = df1['Days_of_pre_holiday'].value_counts()
@@ -36,13 +40,27 @@ if __name__ == '__main__':
     #                       columns=['Quantity', 'DateYear', 'DateMonth', 'DateDay', ]
     #                     )
     # print(dfMax)
-    # df1 = df1[df1.Quantity < 100]
-    # df1 = df1[df1.Price < 15]
+    print(df1['Country'].value_counts())
+    values = df1['Country'].value_counts()
+    # plt.pie(values.values, labels=values.index)
+    # plt.show()
+
+
+    # print(df1['StockCode'].value_counts())
+    df1 = df1[df1.StockCode == '85123A']
+    # print(df1['Description'].())
+    # print(df1['Price'].value_counts())
     # print(dfMin)
+    # df1 = df1[df1.Price < 10]
+    # df1 = df1[df1.Quantity < 100]
+    # print(df1.count())
     #sns.boxplot(df1, x='DateMonth', y='Quantity', hue='DateYear')
-    sns.boxplot(df1, x='DateMonth', y='Price', hue='DateYear')
-    plt.ylim(0, 10000)
-    plt.show()
+    # sns.boxplot(df1, x='DateMonth', y='Price', hue='DateYear')
+    # plt.ylim(0, 10000)
+    # df1[['Quantity', 'Price', 'Customer ID', 'DateYear', 'DateMonth', 'DateDay', 'Day_of_holiday', 'Days_of_pre_holiday']]
+    # print()
+    # sns.heatmap(df1.corr(), annot=True)
+    # plt.show()
 
     # print_pie([value1[0], value1[1]], legend=['Совпали с праздником', 'Остальные'])
     # print_pie([value2[0], value2[1]], legend=['Препразднечные', 'Остальные'])
