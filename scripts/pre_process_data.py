@@ -49,7 +49,7 @@ if __name__ == '__main__':
     dfTmp['Days_of_pre_holiday'] = dfTmp['date'].notna()
     dfTmp.drop(['date'], axis=1, inplace=True)
     # Deleting InvoiceDate
-    dfTmp.drop(['InvoiceDate'], axis=1, inplace=True)
+    # dfTmp.drop(['InvoiceDate'], axis=1, inplace=True)
     # Saving to file
     dfTmp.to_csv('../data/new_data/retail.csv')
 
