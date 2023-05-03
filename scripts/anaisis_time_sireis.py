@@ -4,6 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from statsmodels.tsa.seasonal import seasonal_decompose
 from statsmodels.tsa.stattools import adfuller
+from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 
 if __name__ == '__main__':
 
@@ -17,7 +18,9 @@ if __name__ == '__main__':
         plt.plot(df2.index, df2.values)
         plt.plot(df2.index, df2.Trade_over.rolling(window=mean_window).mean())
         plt.legend(['Time series', 'Moving average for (' + str(mean_window) + ')t'])
-        plt.show()
+
+        plot_acf(df2.values)
+        plot_pacf(df2.values, method='ywm')
         decompose = seasonal_decompose(df2)
         decompose.plot()
         plt.show()
