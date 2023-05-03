@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+from statsmodels.tsa.stattools import adfuller
 
 
 def print_histogram(x1, height1, x2=None, height2=None, x3=None, height3=None, legend=None, x_name='x', y_name='y'):
@@ -31,3 +32,11 @@ def print_pie(values, legend=None):
     if legend is not None:
         plt.legend(legend, loc='upper right')
     plt.show()
+
+
+def adf_test(df2, regression='c'):
+    adf_result = adfuller(df2.values, regression=regression)
+    if adf_result[0] > adf_result[4]['5%']:
+        return False
+    else:
+        return True
