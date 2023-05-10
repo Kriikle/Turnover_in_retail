@@ -4,6 +4,8 @@ from functions.functions_menu import pre_process_data, create_time_sires, anilis
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     while 1:
+        if not os.path.exists("data/new_data/"):
+            os.mkdir('data/new_data/')
         t = 'D'
         flag_show_plot = True
         print("1. Process the data in data/online_retail_||(2).csv")
