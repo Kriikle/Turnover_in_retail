@@ -1,4 +1,4 @@
-# This program is designed to process a set of data [data](https://www.kaggle.com/datasets/mashlyn/online-retail-ii-uci?datasetId=430934) from kagle.
+# This program is designed to process a set of [data](https://www.kaggle.com/datasets/mashlyn/online-retail-ii-uci?datasetId=430934) from kagle.
 ### Ds data:
 ![For years](https://github.com/Kriikle/Turnover_in_retail/blob/master/images/Histogram_years.png "Years and data")
 Added data of holidays in UK from 2009 to 2011.[holidays.csv](https://github.com/Kriikle/Turnover_in_retail/blob/master/data/holidays.csv)
