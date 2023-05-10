@@ -22,3 +22,4 @@ if __name__ == '__main__':
     df1[['InvoiceDate', 'Trade_over']].groupby(['InvoiceDate']).sum().to_csv('../data/new_data/time_sires.csv')
 
 
+
