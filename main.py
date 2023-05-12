@@ -1,5 +1,10 @@
 import os
+
+from matplotlib import pyplot as plt
+
 from functions.functions_menu import pre_process_data, create_time_sires, anilisis_time_siris, forecasting
+import pandas as pd
+import seaborn as sns
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
@@ -7,6 +12,9 @@ if __name__ == '__main__':
         if not os.path.exists("data/new_data/"):
             os.mkdir('data/new_data/')
         t = 'D'
+        p = 5
+        d = 0
+        q = 0
         flag_show_plot = True
         print("1. Process the data in data/online_retail_||(2).csv")
         print("2. Make time sires from new data of menu option 1 result")
@@ -29,10 +37,11 @@ if __name__ == '__main__':
             print('Finished')
         elif choice == 4:
             print('Process started')
-            forecasting(t=t)
+            forecasting(t=t,p=p,d=d,q=q)
             print('Finished')
         elif choice == 5:
             print('t: ', t)
+            print('Arima(', p, ',', d, ',', q, ')', sep="")
             print('Show plot: ', flag_show_plot)
         elif choice == 0:
             break

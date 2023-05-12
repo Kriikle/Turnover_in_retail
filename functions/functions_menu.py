@@ -99,18 +99,18 @@ def pre_process_data(
     dfTmp.to_csv('data/new_data/retail.csv')
 
 
-def forecasting(t='D', q=5, d=0, p=0):
+def forecasting(t='D', p=5, d=0, q=0):
     time_sires = pd.read_csv('data/new_data/time_sires.csv', index_col=0)
     time_sires.index = pd.to_datetime(time_sires.index)
     time_sires = time_sires.resample(t).sum()
     print(time_sires)
-    arma_ = sm.tsa.ARIMA(time_sires, order=(q, d, p)).fit()
+    arma_ = sm.tsa.ARIMA(time_sires, order=(p, d, q)).fit()
     resid = arma_.resid
     predict = arma_.predict(time_sires.index.min(), time_sires.index.max())
     print(arma_.summary())
     r2 = r2_score(time_sires.values, predict.values)
     print('R^2: %1.2f' % r2)
     plt.plot(predict.index, predict.values)
-    # plt.plot(df2.index, df2.values)
+    plt.plot(time_sires.index, time_sires.values)
     plt.legend(['Forecast', 'Time sires'])
     plt.show()
