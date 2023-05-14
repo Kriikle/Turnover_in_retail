@@ -37,7 +37,10 @@ if __name__ == '__main__':
             print('Finished')
         elif choice == 4:
             print('Process started')
-            forecasting(t=t,p=p,d=d,q=q)
+            t = input('Input type of t: ')
+            print('Input p d q by space:', end='')
+            p, d, q = [int(x) for x in input().split()]
+            forecasting(t=t, p=p, d=d, q=q)
             print('Finished')
         elif choice == 5:
             print('t: ', t)
@@ -47,7 +50,7 @@ if __name__ == '__main__':
             break
         else:
             print('Wrong input')
-        input("Press Enter to continue...")
+        input("Press enter to continue...")
         os.system('cls')
 
 

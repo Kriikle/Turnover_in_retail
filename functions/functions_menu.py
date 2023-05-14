@@ -6,7 +6,7 @@ from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 import pandas as pd
 import matplotlib.pyplot as plt
 from statsmodels.graphics.gofplots import qqplot
-from sklearn.metrics import r2_score
+from sklearn.metrics import r2_score, mean_absolute_error
 import statsmodels.api as sm
 
 
@@ -109,7 +109,9 @@ def forecasting(t='D', p=5, d=0, q=0):
     predict = arma_.predict(time_sires.index.min(), time_sires.index.max())
     print(arma_.summary())
     r2 = r2_score(time_sires.values, predict.values)
+    mae = mean_absolute_error(time_sires.values, predict.values)
     print('R^2: %1.2f' % r2)
+    print('MAE: %1.2f' % mae)
     plt.plot(predict.index, predict.values)
     plt.plot(time_sires.index, time_sires.values)
     plt.legend(['Forecast', 'Time sires'])
