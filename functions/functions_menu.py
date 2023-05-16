@@ -30,7 +30,7 @@ def anilisis_time_siris(t='D', flg_print=None):
     if flg_print is not None:
         mean_window = int(df2.count() / 20)
         plt.plot(df2.index, df2.values)
-        plt.plot(df2.index, df2.Trade_over.rolling(window=mean_window).mean())
+        plt.plot(df2.index, df2.rolling(window=mean_window).mean())
         plt.legend(['Time series', 'Moving average for (' + str(mean_window) + ')t'])
 
         plot_acf(df2.values)
